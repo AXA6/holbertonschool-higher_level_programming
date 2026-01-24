@@ -1,26 +1,53 @@
->>> add_integer(1, 2)
-3
->>> add_integer(100, -2)
-98
->>> add_integer(2)
-100
->>> add_integer(100.3, -2)
-98
->>> add_integer(4, "School")
+"""
+This is a doctest for add_integer function
+
+>>> add_integer = __import__('0-add_integer').add_integer
+
+>>> add_integer(100, 100)
+200
+
+>>> add_integer(100, 900.0)
+1000
+
+>>> add_integer(100, "hello")
 Traceback (most recent call last):
-...
+    ...
 TypeError: b must be an integer
->>> add_integer(None)
+
+>>> add_integer("hello", 900)
 Traceback (most recent call last):
-...
+    ...
 TypeError: a must be an integer
->>> add_integer("Hello", 3)
+
+>>> add_integer(100)
+198
+
+>>> add_integer(-5, 10)
+5
+
+>>> add_integer(5, -10)
+-5
+
+>>> add_integer(-5, -10)
+-15
+
+
+>>> add_integer(100.5, 200.7)
+300
+
+>>> add_integer(float('nan'))
 Traceback (most recent call last):
-...
-TypeError: a must be an integer
->>> add_integer(1, 2.5)
-3
->>> add_integer(-1, -2)
--3
->>> add_integer(0, 0)
-0
+    ...
+ValueError: cannot convert float NaN to integer
+
+>>> add_integer(float('inf'))
+Traceback (most recent call last):
+    ...
+OverflowError: cannot convert float infinity to integer
+
+>>> add_integer()
+Traceback (most recent call last):
+    ...
+TypeError: add_integer() missing 1 required positional argument: 'a'
+
+"""
